@@ -7,8 +7,9 @@ import time
 
 from fp.fp          import FreeProxy
 
-from hparams        import user_agent_list, accept_list
-from data.data_path import DATA_DIRECTORY
+from forward43.hparams        import user_agent_list, accept_list
+from forward43.data.data_path import DATA_DIRECTORY
+from forward43.logs.log_path import LOG_DIRECTORY
 
 
 class ForwardScraper:
@@ -22,7 +23,7 @@ class ForwardScraper:
         # Init logger
         logging.basicConfig(
             format   = '[%(asctime)s] %(levelname)-8s %(message)s',
-            filename = f'./logs/scraper_{which_scraper}-{int(time.time())}.log'
+            filename = f'{LOG_DIRECTORY}/scraper_{which_scraper}-{int(time.time())}.log'
         )
         self.logger  = logging.getLogger('scraper')
         self.logger.setLevel(logging.DEBUG)
